@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>Encode to Base64 format</h2>
+    <p>Simply enter your data and push encode button</p>
+    <div class="form-outline mb-4">
+        <textarea class="form-control" id="dataInBase64" rows="5" placeholder="Type (or paste) here..." [(ngModel)]="dataInBase64"></textarea>
+        <label class="form-label" for="dataInBase64">Data in Base64 Format</label>
+    </div>
+    <button type="button" class="btn btn-primary encodeButton" (click)="encode()">Encode</button>
+    <div class="form-outline mb-4">
+        <textarea class="form-control" id="resultInString" rows="5" placeholder="Result here..." [(ngModel)]="resultInString"></textarea>
+        <label class="form-label" for="resultInString">Result in text format</label>
+    </div>
+</div>
