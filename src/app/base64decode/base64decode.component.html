@@ -1,1 +1,26 @@
-<p>base64decode works!</p>
+<div class="container">
+    <h2>Decode from Base64 format</h2>
+    <p>Simply enter your base64 and push decode button</p>
+    <div class="form-outline mb-4">
+        <textarea class="form-control" id="dataInBase64" rows="5" placeholder="Type (or paste) here..." [(ngModel)]="textToDecode" (input)="inputChange($event)"></textarea>
+    </div>
+    <div class="autoUpdateChekbox">
+        <label><input type="checkbox" id="autoUpdate" name="autoUpdate" value="1" [(ngModel)]="isChecked">Auto Update</label>
+        <span class="button-text">Decodes from base64 in real time as you type or paste if Auto Update is checked</span>
+    </div>
+    <div class="encodeButton">
+        <button type="button" class="btn btn-primary decodeButton" (click)="decode()" [disabled]="isChecked">Decode</button> 
+        <span class="button-text">Click here to decode your Base64 if Auto Update is unchecked</span>
+    </div>
+    <div class="form-outline mb-4">
+        <textarea class="form-control" id="resultInString" rows="5" placeholder="Result here..." [(ngModel)]="resultInString"></textarea>
+    </div>
+    <div class="formatButton" *ngIf="resultedString === '1'">
+        <button type="button" class="btn btn-primary decodeButton" (click)="formatJSON()">Format JSON</button> 
+        <span class="button-text">Since your result is in JSON, click format button to pretty print it</span>
+    </div>
+    <div *ngIf="resultedString === '1' && formattedString" class="form-outline json-formatter-div">
+        <json-formatter class="width-50" *ngIf="resultedString === '1'" [json]="resultInString"></json-formatter>
+        <textarea class="form-control width-50" id="resultInString" rows="10" placeholder="Result here..." [disabled]="true">{{formattedString}}</textarea>
+    </div>
+</div>

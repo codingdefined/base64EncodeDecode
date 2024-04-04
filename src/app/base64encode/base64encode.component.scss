@@ -1,3 +1,25 @@
-.encodeButton{
-    margin-bottom: 2%;
+.button-text {
+    padding-left: 1%;
+    font-size: 12px;
+}
+
+.form-outline {
+    margin-top: 1%;
+}
+
+#autoUpdate {
+    margin-right: 0.5rem;
+}
+
+.autoUpdateChekbox {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.encodeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

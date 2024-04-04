@@ -2,12 +2,18 @@
     <h2>Encode to Base64 format</h2>
     <p>Simply enter your data and push encode button</p>
     <div class="form-outline mb-4">
-        <textarea class="form-control" id="dataInBase64" rows="5" placeholder="Type (or paste) here..." [(ngModel)]="dataInBase64"></textarea>
-        <label class="form-label" for="dataInBase64">Data in Base64 Format</label>
+        <textarea class="form-control" id="dataInBase64" rows="5" placeholder="Type (or paste) here..." [(ngModel)]="textToEncode" (input)="inputChange($event)"></textarea>
     </div>
-    <button type="button" class="btn btn-primary encodeButton" (click)="encode()">Encode</button>
+    <div class="autoUpdateChekbox">
+        <label><input type="checkbox" id="autoUpdate" name="autoUpdate" value="1" [(ngModel)]="isChecked">Auto Update</label>
+        <span class="button-text">Encodes to base64 in real time as you type or paste if Auto Update is checked</span>
+    </div>
+    <div class="encodeButton"> 
+        <button type="button" class="btn btn-primary encodeButton" (click)="encode()" [disabled]="isChecked">Encode</button>
+        <span class="button-text">Click here to encode to Base64 if Auto Update is unchecked</span>
+    </div>
+    
     <div class="form-outline mb-4">
-        <textarea class="form-control" id="resultInString" rows="5" placeholder="Result here..." [(ngModel)]="resultInString"></textarea>
-        <label class="form-label" for="resultInString">Result in text format</label>
+        <textarea class="form-control" id="resultInString" rows="5" placeholder="Result here..." [(ngModel)]="resultInBase64"></textarea>
     </div>
 </div>
