@@ -1,12 +1,12 @@
 import { Component, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgIf } from '@angular/common';
-import { JsonFormatterDirective } from '../json-formatter.directive';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 @Component({
   selector: 'app-base64decode',
   standalone: true,
-  imports: [FormsModule, NgIf, CommonModule, JsonFormatterDirective],
+  imports: [FormsModule, NgIf, CommonModule, NgxJsonViewerModule],
   templateUrl: './base64decode.component.html',
   styleUrl: './base64decode.component.scss'
 })
@@ -16,6 +16,7 @@ export class Base64decodeComponent {
   isChecked: boolean = true;
   resultedString: string = '0';
   formattedString: string = '';
+  resultInJson: any;
 
   ngOnInit() {
     
@@ -61,6 +62,7 @@ export class Base64decodeComponent {
   formatJSON() {
     if(this.resultedString === '1'){
       this.formattedString = JSON.stringify(JSON.parse(this.resultInString), null, 4);
+      this.resultInJson = JSON.parse(this.resultInString);
     }
   }
 }

@@ -20,7 +20,6 @@
         <span class="button-text">Since your result is in JSON, click format button to pretty print it</span>
     </div>
     <div *ngIf="resultedString === '1' && formattedString" class="form-outline json-formatter-div">
-        <json-formatter class="width-50" *ngIf="resultedString === '1'" [json]="resultInString"></json-formatter>
-        <textarea class="form-control width-50" id="resultInString" rows="10" placeholder="Result here..." [disabled]="true">{{formattedString}}</textarea>
+        <ngx-json-viewer *ngIf="resultedString === '1'" class="width-50" [json]="resultInJson" [depth]="3"></ngx-json-viewer>
     </div>
 </div>
